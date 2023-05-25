@@ -4,10 +4,11 @@ let allCases = [];
 const inputColor = document.querySelector(".color input");
 const inputLignes = document.querySelector(".lignes input");
 const inputColonnes = document.querySelector(".colonnes input");
+const fillBtn = document.querySelector("#fillBtn");
 const deleteBtn = document.querySelector("#deleteBtn");
 let mainRows = 10;
 let mainColumns = 10;
-let deleteMode = false;
+let mode = "draw";
 
 function gridCreator(rows, cols){
     
@@ -34,21 +35,34 @@ function gridCreator(rows, cols){
 }
 
 let colorSelected = "#000";
-let mouseDown = false;
 
 function setColorCases(){
+    
     addEventListener("mousedown", function(e){
+        addEventListener("dragover", function(e){
+            if(e.target.classList[0].slice(0, 3) === "box"){
+                if(mode === "erase"){
+                    e.target.style.border = "dotted 1px";
+                    e.target.style.backgroundColor = "#FFF";
+                }else if(mode === "draw"){
+                    e.target.style.border = "solid 1px";
+                    e.target.style.backgroundColor = colorSelected;
+                }
+            }
+        });
         if(e.target.classList[0].slice(0, 3) === "box"){
-            if(deleteMode){
+            if(mode === "erase"){
                 e.target.style.border = "dotted 1px";
                 e.target.style.backgroundColor = "#FFF";
-            }else{
+            }else if(mode === "draw"){
                 e.target.style.border = "solid 1px";
                 e.target.style.backgroundColor = colorSelected;
             }
         }
     });
+    
 }
+
 
 function selectColor(){
     inputColor.addEventListener("change", function(e){
@@ -82,16 +96,21 @@ function gridSizing(){
     })
 }
 
-function deleteBoxColor(){
+function eraseMode(){
     deleteBtn.addEventListener("click", function(){
-        if(deleteMode){
-            deleteMode = false;
+        if(mode === "erase"){
+            mode = "draw";
             body.classList.remove("gomme");
-        }else{
-            deleteMode = true;
+        }else if(mode === "draw" || mode === "fill"){
+            mode = "erase";
             body.classList.add("gomme");
         }
-        
+    })
+}
+
+function fillMode(){
+    fillBtn.addEventListener("click", function(){
+        mode = "fill";
     })
 }
 
@@ -101,5 +120,5 @@ window.addEventListener("DOMContentLoaded", function(){
     gridSizing();
     selectColor();
     setColorCases();
-    deleteBoxColor();
+    eraseMode();
 });

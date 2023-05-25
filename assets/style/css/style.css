@@ -53,22 +53,38 @@ table {
 }
 
 body header menu {
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-body header menu p {
-  margin: 1rem;
-  font-size: 2rem;
+  padding: 0.5rem;
 }
 body header menu div {
   display: flex;
   align-items: center;
 }
+body header menu div p {
+  margin-left: 1rem;
+  margin-right: 0.25rem;
+  font-size: 2.5vw;
+}
+body header menu div input {
+  width: 10vw;
+}
+body header menu div #penBtn {
+  color: green;
+  font-size: 1.5rem;
+}
+body header menu div #fillBtn {
+  color: blue;
+  font-size: 1.5rem;
+}
 body header menu div #deleteBtn {
   color: red;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
+body header menu div #penBtn:hover,
+body header menu div #fillBtn:hover,
 body header menu div #deleteBtn:hover {
   cursor: pointer;
 }

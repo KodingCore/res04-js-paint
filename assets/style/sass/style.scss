@@ -8,24 +8,42 @@ body
     {
         menu
         {
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            p
-            {
-                margin: 1rem;
-                font-size: 2rem;
-            }
+            padding: 0.5rem;
+            
             div{
+                
                 display: flex;
                 align-items: center;
+                
+                p
+                {
+                    margin-left: 1rem;
+                    margin-right: 0.25rem;
+                    font-size: 2.5vw;
+                }
+                input{
+                    width: 10vw;
+                }
+                #penBtn{
+                    color: green;
+                    font-size: 1.5rem;
+                }
+                #fillBtn{
+                    color: blue;
+                    font-size: 1.5rem;
+                }
                 #deleteBtn{
                     color: red;
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                 }
+                #penBtn:hover,
+                #fillBtn:hover,
                 #deleteBtn:hover{
                     cursor: pointer;
-                    
                 }
             }
             
