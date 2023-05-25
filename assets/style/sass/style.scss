@@ -1,0 +1,46 @@
+@import "libs/_reset.scss";
+
+
+body
+{
+    header
+    {
+        menu
+        {
+            display: flex;
+            align-items: center;
+            p
+            {
+                margin: 1rem;
+                font-size: 2rem;
+            }
+            button
+            {
+                margin: 1rem;
+                border: solid black 2px;
+                width: 100px;
+                height: 50px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 4px;
+                div{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    background-color: black;
+                    
+                }
+            }
+            button:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    #scene
+    {
+        display:grid;
+        grid-template: repeat(10, 1fr) / repeat(10,1fr);
+    }
+}
