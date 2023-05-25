@@ -55,7 +55,7 @@ table {
 body header menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 body header menu p {
   margin: 1rem;
@@ -75,6 +75,13 @@ body header menu div #deleteBtn:hover {
 body #scene {
   display: grid;
   grid-template: repeat(10, 1fr)/repeat(10, 1fr);
+}
+body #scene div {
+  background-color: #fff;
+}
+
+.gomme {
+  cursor: url("gomme.png"), auto;
 }
 
 /*# sourceMappingURL=style.css.map */

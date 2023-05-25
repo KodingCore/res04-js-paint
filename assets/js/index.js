@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const scene = document.getElementById("scene");
 let allCases = [];
 const inputColor = document.querySelector(".color input");
@@ -33,21 +34,20 @@ function gridCreator(rows, cols){
 }
 
 let colorSelected = "#000";
+let mouseDown = false;
 
 function setColorCases(){
-
-    addEventListener("click", function(e){
+    addEventListener("mousedown", function(e){
         if(e.target.classList[0].slice(0, 3) === "box"){
             if(deleteMode){
                 e.target.style.border = "dotted 1px";
-                e.target.style.backgroundColor = "#fff";
+                e.target.style.backgroundColor = "#FFF";
             }else{
                 e.target.style.border = "solid 1px";
                 e.target.style.backgroundColor = colorSelected;
             }
         }
-    })
-
+    });
 }
 
 function selectColor(){
@@ -86,8 +86,10 @@ function deleteBoxColor(){
     deleteBtn.addEventListener("click", function(){
         if(deleteMode){
             deleteMode = false;
+            body.classList.remove("gomme");
         }else{
             deleteMode = true;
+            body.classList.add("gomme");
         }
         
     })
